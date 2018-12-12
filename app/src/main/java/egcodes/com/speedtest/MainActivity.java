@@ -146,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
                             @Override
                             public void run() {
                                 startButton.setTextSize(13);
-                                startButton.setText(String.format("Hosted by %s (%s) [%s km]", info.get(5), info.get(3), new DecimalFormat("#.##").format(distance / 1000)));
+                                startButton.setText(String.format("Host Location: %s [Distance: %s km]", info.get(2), new DecimalFormat("#.##").format(distance / 1000)));
                             }
                         });
 

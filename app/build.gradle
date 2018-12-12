@@ -1,14 +1,13 @@
 apply plugin: 'com.android.application'
-
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    buildToolsVersion '26.0.2'
     defaultConfig {
         applicationId "egcodes.com.speedtest"
         minSdkVersion 14
         targetSdkVersion 14
-        versionCode 2
-        versionName "1.0.1"
+        versionCode 4
+        versionName "1.0.3"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -19,22 +18,11 @@ android {
     }
 }
 
-allprojects {
-    repositories {
-        maven {
-            url "https://repository-achartengine.forge.cloudbees.com/snapshot/"
-        }
-    }
-}
-
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile 'com.android.support:appcompat-v7:25.2.0'
     testCompile 'junit:junit:4.12'
-
-    compile group: 'org.achartengine', name: 'achartengine', version: '1.2.0'
+    implementation files('libs/achartengine-1.2.0.jar')
 }
-
