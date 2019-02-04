@@ -142,6 +142,17 @@ public class MainActivity extends AppCompatActivity {
                         final List<String> info = mapValue.get(findServerIndex);
                         final double distance = dist;
 
+                        if (info == null) {
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    startButton.setTextSize(12);
+                                    startButton.setText("There was a problem in getting Host Location. Try again later.");
+                                }
+                            });
+                            return;
+                        }
+
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
