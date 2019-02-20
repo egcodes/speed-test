@@ -1,5 +1,3 @@
-PlayStore Link: https://play.google.com/store/apps/details?id=egcodes.com.speedtest
-
 Use "Thunder - Speed Test" for easy, one-tap connection testing in under 30 seconds
 
 - Discover your Download, Upload and Ping 
