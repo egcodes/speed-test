@@ -43,80 +43,24 @@ public class GetSpeedTestHostsHandler extends Thread {
     @Override
     public void run() {
         //Get latitude, longitude
-        try {
-            URL url = new URL("https://www.speedtest.net/speedtest-config.php");
-            HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-            int code = urlConnection.getResponseCode();
+        selfLat = 23.108303;
+        selfLog = -82.440648;
 
-            if (code == 200) {
-                BufferedReader br = new BufferedReader(
-                        new InputStreamReader(
-                                urlConnection.getInputStream()));
-
-                String line;
-                while ((line = br.readLine()) != null) {
-                    if (!line.contains("isp=")) {
-                        continue;
-                    }
-                    selfLat = Double.parseDouble(line.split("lat=\"")[1].split(" ")[0].replace("\"", ""));
-                    selfLon = Double.parseDouble(line.split("lon=\"")[1].split(" ")[0].replace("\"", ""));
-                    break;
-                }
-
-                br.close();
-            }
-
-        } catch (Exception ex) {
-            ex.printStackTrace();
-            return;
-        }
-
-        String uploadAddress = "";
-        String name = "";
-        String country = "";
-        String cc = "";
-        String sponsor = "";
-        String lat = "";
-        String lon = "";
-        String host = "";
+        String uploadAddress = "http://www.etecsa.cu//images/micubacel.mp4";
+        String name = "ETECSA";
+        String country = "Cuba";
+        String cc = "CU";
+        String sponsor = "ETECSA";
+        String lat = 23.108303;
+        String lon = -82.440648;
+        String host = "www.etecsa.cu";
 
 
         //Best server
         int count = 0;
-        try {
-            URL url = new URL("https://www.speedtest.net/speedtest-servers-static.php");
-            HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-            int code = urlConnection.getResponseCode();
-
-            if (code == 200) {
-                BufferedReader br = new BufferedReader(
-                        new InputStreamReader(
-                                urlConnection.getInputStream()));
-
-                String line;
-                while ((line = br.readLine()) != null) {
-                    if (line.contains("<server url")) {
-                        uploadAddress = line.split("server url=\"")[1].split("\"")[0];
-                        lat = line.split("lat=\"")[1].split("\"")[0];
-                        lon = line.split("lon=\"")[1].split("\"")[0];
-                        name = line.split("name=\"")[1].split("\"")[0];
-                        country = line.split("country=\"")[1].split("\"")[0];
-                        cc = line.split("cc=\"")[1].split("\"")[0];
-                        sponsor = line.split("sponsor=\"")[1].split("\"")[0];
-                        host = line.split("host=\"")[1].split("\"")[0];
-
-                        List<String> ls = Arrays.asList(lat, lon, name, country, cc, sponsor, host);
-                        mapKey.put(count, uploadAddress);
-                        mapValue.put(count, ls);
-                        count++;
-                    }
-                }
-
-                br.close();
-            }
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
+        List<String> ls = Arrays.asList(lat, lon, name, country, cc, sponsor, host);
+        mapKey.put(count, uploadAddress);
+        mapValue.put(count, ls);
 
         finished = true;
     }
