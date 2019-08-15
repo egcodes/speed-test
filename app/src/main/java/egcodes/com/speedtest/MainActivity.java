@@ -263,8 +263,9 @@ public class MainActivity extends AppCompatActivity {
                                 downloadTestStarted = true;
                             }
                             if (downloadTestFinished && !uploadTestStarted) {
-                                uploadTest.start();
+                                //uploadTest.start();
                                 uploadTestStarted = true;
+                                uploadTestFinished = true;
                             }
 
 
@@ -443,7 +444,7 @@ public class MainActivity extends AppCompatActivity {
                             }
 
                             //Test bitti
-                            if (pingTestFinished && downloadTestFinished && uploadTest.isFinished()) {
+                            if (pingTestFinished && downloadTestFinished && uploadTestFinished) {
                                 break;
                             }
 
