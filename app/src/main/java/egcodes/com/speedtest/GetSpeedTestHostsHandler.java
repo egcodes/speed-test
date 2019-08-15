@@ -44,15 +44,15 @@ public class GetSpeedTestHostsHandler extends Thread {
     public void run() {
         //Get latitude, longitude
         selfLat = 23.108303;
-        selfLog = -82.440648;
+        selfLon = -82.440648;
 
         String uploadAddress = "http://www.etecsa.cu//images/micubacel.mp4";
         String name = "ETECSA";
         String country = "Cuba";
         String cc = "CU";
         String sponsor = "ETECSA";
-        String lat = 23.108303;
-        String lon = -82.440648;
+        String lat = "23.108303";
+        String lon = "-82.440648";
         String host = "www.etecsa.cu";
 
 
