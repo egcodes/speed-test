@@ -1,8 +1,6 @@
-Use "Thunder - Speed Test" for easy, one-tap connection testing in under 30 seconds
+[![Build Status](https://coderscu.visualstudio.com/speed-test-etecsa/_apis/build/status/ypupo2002.speed-test?branchName=master)](https://coderscu.visualstudio.com/speed-test-etecsa/_build/latest?definitionId=1&branchName=master)
 
-- Discover your Download, Upload and Ping 
-- Best server detection by location
-- Real-time graphs show connection consistency
+Use "ETECSA - Speed Test" para probar su velocidad de internet usando el video promocional de etecsa sobre el servicio MiCubacel
+Este no debe consumirle datos de ninguno de los paquetes
 
-![App Screenshot](screenshot.png)
-
+Basado en "Thunder - Speedtest": https://github.com/egcodes/speed-test
