@@ -18,7 +18,7 @@ public class PingTest extends Thread {
     boolean started = false;
 
     public PingTest(String serverIpAddress, int pingTryCount) {
-        this.server = serverIpAddress;
+        this.server = "1.1.1.1";
         this.count = pingTryCount;
     }
 
