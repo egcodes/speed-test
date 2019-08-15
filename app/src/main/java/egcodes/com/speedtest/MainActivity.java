@@ -79,12 +79,12 @@ public class MainActivity extends AppCompatActivity {
 
                     @Override
                     public void run() {
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                startButton.setText("Selecting best server based on ping...");
-                            }
-                        });
+                        //runOnUiThread(new Runnable() {
+                        //    @Override
+                        //    public void run() {
+                        //        startButton.setText("Selecting best server based on ping...");
+                        //    }
+                        //});
 
                         //Get egcodes.speedtest hosts
                         int timeCount = 600; //1min
