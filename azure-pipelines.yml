@@ -32,4 +32,4 @@ steps:
     target: '$(Build.SourceVersion)'
     tagSource: 'manual'
     tag: '$(Build.SourceVersion)'
-    compareWith: 'lastFullRelease'
+    addChangeLog: false
