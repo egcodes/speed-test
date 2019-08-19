@@ -11,6 +11,9 @@ pool:
   vmImage: 'macos-latest'
 
 steps:
+- task: GitVersion@5
+  inputs:
+    runtime: 'core'
 - task: Gradle@2
   inputs:
     workingDirectory: ''
@@ -31,5 +34,5 @@ steps:
     action: 'create'
     target: '$(Build.SourceVersion)'
     tagSource: 'manual'
-    tag: '$(Build.SourceVersion)'
+    tag: '$(Build.BuildNumber)'
     addChangeLog: false
