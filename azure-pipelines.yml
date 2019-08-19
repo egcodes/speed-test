@@ -35,4 +35,5 @@ steps:
     target: '$(Build.SourceVersion)'
     tagSource: 'manual'
     tag: '$(Build.BuildNumber)'
+    assets: '$(Build.ArtifactStagingDirectory)/app/build/outputs/apk/debug/app-debug.apk'
     addChangeLog: false
