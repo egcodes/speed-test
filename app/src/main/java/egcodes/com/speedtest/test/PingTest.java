@@ -53,6 +53,9 @@ public class PingTest extends Thread {
                     avgRtt = Double.parseDouble(line.split("/")[4]);
                     break;
                 }
+                if (line.contains("Unreachable")) {
+                    return;
+                }
             }
             pr.waitFor();
             in.close();

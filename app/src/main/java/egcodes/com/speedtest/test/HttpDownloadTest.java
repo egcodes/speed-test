@@ -21,7 +21,7 @@ public class HttpDownloadTest extends Thread {
     double finalDownloadRate = 0.0;
     boolean finished = false;
     double instantDownloadRate = 0;
-    int timeout = 15;
+    int timeout = 8;
 
     HttpURLConnection httpConn = null;
 

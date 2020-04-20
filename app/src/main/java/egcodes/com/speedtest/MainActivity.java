@@ -248,6 +248,7 @@ public class MainActivity extends AppCompatActivity {
 
                         //Init Test
                         final PingTest pingTest = new PingTest(info.get(6).replace(":8080", ""), 6);
+                        uploadAddr = uploadAddr.replace("http://", "https://");
                         final HttpDownloadTest downloadTest = new HttpDownloadTest(uploadAddr.replace(uploadAddr.split("/")[uploadAddr.split("/").length - 1], ""));
                         final HttpUploadTest uploadTest = new HttpUploadTest(uploadAddr);
 

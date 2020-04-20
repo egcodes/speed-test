@@ -107,7 +107,7 @@ class HandlerUpload extends Thread {
     public void run() {
         byte[] buffer = new byte[150 * 1024];
         long startTime = System.currentTimeMillis();
-        int timeout = 10;
+        int timeout = 8;
 
         while (true) {
 
