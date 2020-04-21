@@ -83,6 +83,7 @@ public class HttpDownloadTest extends Thread {
                 responseCode = httpConn.getResponseCode();
             } catch (Exception ex) {
                 ex.printStackTrace();
+                break outer;
             }
 
             try {

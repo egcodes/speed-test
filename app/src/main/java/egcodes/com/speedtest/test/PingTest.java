@@ -44,7 +44,6 @@ public class PingTest extends Thread {
 
             BufferedReader in = new BufferedReader(new InputStreamReader(pr.getInputStream()));
             String line;
-            String output = "";
             while ((line = in.readLine()) != null) {
                 if (line.contains("icmp_seq")) {
                     instantRtt = Double.parseDouble(line.split(" ")[line.split(" ").length - 2].replace("time=", ""));
@@ -53,7 +52,7 @@ public class PingTest extends Thread {
                     avgRtt = Double.parseDouble(line.split("/")[4]);
                     break;
                 }
-                if (line.contains("Unreachable")) {
+                if (line.contains("Unreachable") || line.contains("Unknown") || line.contains("%100 packet loss")) {
                     return;
                 }
             }

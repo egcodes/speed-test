@@ -138,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
                                 findServerIndex = index;
                             }
                         }
-                        String uploadAddr = mapKey.get(findServerIndex);
+                        String testAddr = mapKey.get(findServerIndex).replace("http://", "https://");
                         final List<String> info = mapValue.get(findServerIndex);
                         final double distance = dist;
 
@@ -247,10 +247,9 @@ public class MainActivity extends AppCompatActivity {
                         Boolean uploadTestFinished = false;
 
                         //Init Test
-                        final PingTest pingTest = new PingTest(info.get(6).replace(":8080", ""), 6);
-                        uploadAddr = uploadAddr.replace("http://", "https://");
-                        final HttpDownloadTest downloadTest = new HttpDownloadTest(uploadAddr.replace(uploadAddr.split("/")[uploadAddr.split("/").length - 1], ""));
-                        final HttpUploadTest uploadTest = new HttpUploadTest(uploadAddr);
+                        final PingTest pingTest = new PingTest(info.get(6).replace(":8080", ""), 3);
+                        final HttpDownloadTest downloadTest = new HttpDownloadTest(testAddr.replace(testAddr.split("/")[testAddr.split("/").length - 1], ""));
+                        final HttpUploadTest uploadTest = new HttpUploadTest(testAddr);
 
 
                         //Tests

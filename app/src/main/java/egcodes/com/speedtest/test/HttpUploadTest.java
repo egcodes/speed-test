@@ -137,6 +137,7 @@ class HandlerUpload extends Thread {
                 conn.disconnect();
             } catch (Exception ex) {
                 ex.printStackTrace();
+                break;
             }
         }
     }
