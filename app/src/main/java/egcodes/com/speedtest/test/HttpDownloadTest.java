@@ -8,6 +8,11 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLSession;
+import javax.net.ssl.SSLSocketFactory;
+
 /**
  * @author erdigurbuz
  */
@@ -23,7 +28,7 @@ public class HttpDownloadTest extends Thread {
     double instantDownloadRate = 0;
     int timeout = 8;
 
-    HttpURLConnection httpConn = null;
+    HttpsURLConnection httpsConn = null;
 
     public HttpDownloadTest(String fileURL) {
         this.fileURL = fileURL;
@@ -79,8 +84,16 @@ public class HttpDownloadTest extends Thread {
         for (String link : fileUrls) {
             try {
                 url = new URL(link);
-                httpConn = (HttpURLConnection) url.openConnection();
-                responseCode = httpConn.getResponseCode();
+                httpsConn = (HttpsURLConnection) url.openConnection();
+                httpsConn.setSSLSocketFactory((SSLSocketFactory) SSLSocketFactory.getDefault());
+                httpsConn.setHostnameVerifier(new HostnameVerifier() {
+                    @Override
+                    public boolean verify(String hostname, SSLSession session) {
+                        return true;
+                    }
+                });
+                httpsConn.connect();
+                responseCode = httpsConn.getResponseCode();
             } catch (Exception ex) {
                 ex.printStackTrace();
                 break outer;
@@ -90,7 +103,7 @@ public class HttpDownloadTest extends Thread {
                 if (responseCode == HttpURLConnection.HTTP_OK) {
                     byte[] buffer = new byte[10240];
 
-                    InputStream inputStream = httpConn.getInputStream();
+                    InputStream inputStream = httpsConn.getInputStream();
                     int len = 0;
 
                     while ((len = inputStream.read(buffer)) != -1) {
@@ -104,7 +117,7 @@ public class HttpDownloadTest extends Thread {
                     }
 
                     inputStream.close();
-                    httpConn.disconnect();
+                    httpsConn.disconnect();
                 } else {
                     System.out.println("Link not found...");
                 }

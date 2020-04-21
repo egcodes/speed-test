@@ -11,6 +11,11 @@ import java.net.URL;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLSession;
+import javax.net.ssl.SSLSocketFactory;
+
 /**
  * @author erdigurbuz
  */
@@ -112,12 +117,19 @@ class HandlerUpload extends Thread {
         while (true) {
 
             try {
-                HttpURLConnection conn = null;
-                conn = (HttpURLConnection) url.openConnection();
+                HttpsURLConnection conn = null;
+                conn = (HttpsURLConnection) url.openConnection();
                 conn.setDoOutput(true);
                 conn.setRequestMethod("POST");
                 conn.setRequestProperty("Connection", "Keep-Alive");
-
+                conn.setSSLSocketFactory((SSLSocketFactory) SSLSocketFactory.getDefault());
+                conn.setHostnameVerifier(new HostnameVerifier() {
+                    @Override
+                    public boolean verify(String hostname, SSLSession session) {
+                        return true;
+                    }
+                });
+                conn.connect();
                 DataOutputStream dos = new DataOutputStream(conn.getOutputStream());
 
 
