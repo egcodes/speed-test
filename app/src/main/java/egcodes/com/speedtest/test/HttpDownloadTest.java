@@ -70,7 +70,7 @@ public class HttpDownloadTest extends Thread {
         int responseCode = 0;
 
         List<String> fileUrls = new ArrayList<>();
-        fileUrls.add("http://www.etecsa.cu//images/micubacel.mp4");
+        fileUrls.add("https://www.etecsa.cu//images/micubacel.mp4");
 
         startTime = System.currentTimeMillis();
 

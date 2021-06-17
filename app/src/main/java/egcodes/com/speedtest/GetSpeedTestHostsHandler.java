@@ -46,7 +46,7 @@ public class GetSpeedTestHostsHandler extends Thread {
         selfLat = 23.108303;
         selfLon = -82.440648;
 
-        String uploadAddress = "http://www.etecsa.cu//images/micubacel.mp4";
+        String uploadAddress = "https://www.etecsa.cu//images/micubacel.mp4";
         String name = "ETECSA";
         String country = "Cuba";
         String cc = "CU";
