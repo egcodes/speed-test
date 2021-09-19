@@ -4,5 +4,5 @@ Use "Thunder - Speed Test" for easy, one-tap connection testing in under 30 seco
 - Best server detection by location
 - Real-time graphs show connection consistency
 
-![App Screenshot](screenshot.png)
+![App Screenshot](screenshot.jpg)
 
